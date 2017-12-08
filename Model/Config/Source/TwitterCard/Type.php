@@ -15,6 +15,11 @@ use Staempfli\Seo\Model\Property\TwitterCard;
  */
 class Type implements ArrayInterface
 {
+    const CARD_TYPE_SUMMARY = 'summary';
+    const CARD_TYPE_SUMMARY_LARGE_IMAGE = 'summary_large_image';
+    const CARD_TYPE_APP = 'app';
+    const CARD_TYPE_PLAYER = 'player';
+
     /**
      * Options array
      *
@@ -30,10 +35,10 @@ class Type implements ArrayInterface
     {
         if (!$this->_options) {
             $this->_options = [
-                ['value' => TwitterCard::CARD_TYPE_SUMMARY, 'label' => __('Summary')],
-                ['value' => TwitterCard::CARD_TYPE_SUMMARY_LARGE_IMAGE, 'label' => __('Summary with large Image')],
-                ['value' => TwitterCard::CARD_TYPE_APP, 'label' => __('App')],
-                ['value' => TwitterCard::CARD_TYPE_PLAYER, 'label' => __('Player')],
+                ['value' => self::CARD_TYPE_SUMMARY, 'label' => __('Summary')],
+                ['value' => self::CARD_TYPE_SUMMARY_LARGE_IMAGE, 'label' => __('Summary with large Image')],
+                ['value' => self::CARD_TYPE_APP, 'label' => __('App')],
+                ['value' => self::CARD_TYPE_PLAYER, 'label' => __('Player')],
             ];
         }
         return $this->_options;
