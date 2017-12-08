@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Stämpfli AG. All rights reserved.
+ * @author marcel.hauri@staempfli.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Staempfli\Seo\Model\PropertyInterface" type="Staempfli\Seo\Model\Property" />
+    <preference for="Staempfli\Seo\Model\AdapterInterface" type="Staempfli\Seo\Model\Adapter" />
+    <type name="Staempfli\Seo\Model\Adapter">
+        <arguments>
+            <argument name="adapters" xsi:type="array">
+                <item name="product_entity_container" xsi:type="object">\Staempfli\Seo\Model\Adapter\Product</item>
+                <item name="category_entity_container" xsi:type="object">\Staempfli\Seo\Model\Adapter\Category</item>
+                <item name="page_entity_container" xsi:type="object">\Staempfli\Seo\Model\Adapter\Page</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

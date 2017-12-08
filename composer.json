@@ -1,0 +1,26 @@
+{
+  "name": "staempfli/magento2-module-seo",
+  "description": "Magento 2 Seo Module",
+  "require": {
+    "php": "~7.0"
+  },
+  "type": "magento2-module",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Marcel Hauri",
+      "email": "marcel.hauri@staempfli.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Staempfli\\Seo\\": ""
+    }
+  }
+}

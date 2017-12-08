@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <system>
+        <section id="seo" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Search Engine Optimization</label>
+            <tab>general</tab>
+            <resource>Staempfli_Seo::seo</resource>
+            <group id="verifications" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Site Verification Codes</label>
+                <field id="google" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google</label>
+                    <comment>https://support.google.com/webmasters/answer/35179</comment>
+                </field>
+                <field id="bing" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Bing</label>
+                    <comment>https://www.bing.com/webmaster/help/how-to-verify-ownership-of-your-site-afcfefc6</comment>
+                </field>
+                <field id="pinterest" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pinterest</label>
+                    <comment>https://help.pinterest.com/en/articles/confirm-your-website</comment>
+                </field>
+                <field id="yandex" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Yandex</label>
+                    <comment>https://yandex.com/support/webmaster/service/rights.html#how-to</comment>
+                </field>
+            </group>
+            <group id="twitter_card" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Twitter Card</label>
+                <field id="type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Card Type</label>
+                    <source_model>Staempfli\Seo\Model\Config\Source\TwitterCard\Type</source_model>
+                </field>
+                <field id="site" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Username for Site</label>
+                    <comment>@username for the website used in the card footer.</comment>
+                </field>
+                <field id="creator" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Creator / Author</label>
+                    <comment>@username for the content creator / author.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

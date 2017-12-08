@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 Stämpfli AG. All rights reserved.
+ * @author marcel.hauri@staempfli.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="head.additional">
+        <block name="seo-site-verification" template="Staempfli_Seo::siteverification.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Staempfli\Seo\Block\SiteVerification</argument>
+            </arguments>
+        </block>
+
+        <block name="seo-open-graph" template="Staempfli_Seo::opengraph.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Staempfli\Seo\Block\OpenGraph</argument>
+            </arguments>
+        </block>
+
+        <block name="seo-twitter-card" template="Staempfli_Seo::twittercard.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Staempfli\Seo\Block\TwitterCard</argument>
+            </arguments>
+        </block>
+    </referenceContainer>
+</page>
