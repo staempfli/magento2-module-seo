@@ -12,6 +12,8 @@ class Property implements PropertyInterface
     const DEFAULT_PROPERTIES = [];
     const DEFAULT_PREFIX = '';
     const DEFAULT_ATTRIBUTE_NAME = 'name';
+    const MAX_DESCRIPTION_LENGTH = 200;
+
     /**
      * @var array
      */
@@ -70,6 +72,9 @@ class Property implements PropertyInterface
      */
     public function setDescription(string $description)
     {
+        if (strlen($description) >= self::MAX_DESCRIPTION_LENGTH) {
+            $description = substr($description, 0, (self::MAX_DESCRIPTION_LENGTH - 4)) . ' ...';
+        }
         return $this->addProperty('description', htmlentities(strip_tags($description)));
     }
 
