@@ -9,7 +9,7 @@
     <default>
         <seo>
             <twitter_card>
-                <type>summary_large_image</type>
+                <type>summary</type>
             </twitter_card>
         </seo>
     </default>
