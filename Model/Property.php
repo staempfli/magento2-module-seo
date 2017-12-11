@@ -9,6 +9,7 @@ namespace Staempfli\Seo\Model;
 
 class Property implements PropertyInterface
 {
+    const DEFAULT_GROUP = 'default';
     const DEFAULT_PROPERTIES = [];
     const DEFAULT_PREFIX = '';
     const DEFAULT_ATTRIBUTE_NAME = 'name';
@@ -123,51 +124,49 @@ class Property implements PropertyInterface
     /**
      * @param string $key
      * @param string|array $value
-     * @return $this
-     */
-    public function addProperty(string $key, $value)
-    {
-        $this->properties[$key] = $value;
-        return $this;
-    }
-
-    /**
-     * @param string $key
+     * @param string $group
      * @return string
      */
-    public function getProperty(string $key)
+    public function addProperty(string $key, $value, string $group = self::DEFAULT_GROUP)
     {
-        return $this->properties[$key] ?? '';
-    }
-
-    /**
-     * @param string $key
-     * @return $this
-     */
-    public function removeProperty(string $key)
-    {
-        unset($this->properties[$key]);
+        $this->properties[$group][$key] = $value;
         return $this;
     }
 
-    public function toHtml() : string
+    public function getProperty(string $key, string $group = self::DEFAULT_GROUP)
     {
-        $html = $this->renderProperties($this->properties);
-        $this->reset();
+        return $this->properties[$group][$key] ?? '';
+    }
+
+    public function removeProperty(string $key, string $group = self::DEFAULT_GROUP)
+    {
+        unset($this->properties[$group][$key]);
+        return $this;
+    }
+
+    public function toHtml(string $group = self::DEFAULT_GROUP) : string
+    {
+        $html = $this->renderProperties($this->properties, $group);
+        $this->reset($group);
         return $html;
     }
 
-    public function hasData() : bool
+    public function hasData(string $group = self::DEFAULT_GROUP) : bool
     {
-        if ($this->properties) {
+        if ($this->properties[$group] ?? false) {
             return true;
         }
         return false;
     }
 
-    private function renderProperties(array $properties) : string
+    private function renderProperties(array $properties, string $group = self::DEFAULT_GROUP) : string
     {
         $html = [];
+
+        if (isset($properties[$group])) {
+            $properties = $properties[$group];
+        }
+
         foreach ($properties as $property => $value) {
             if (is_array($value)) {
                 $subList = $this->renderProperties($value);
@@ -193,9 +192,9 @@ class Property implements PropertyInterface
         );
     }
 
-    private function reset()
+    private function reset(string $group = self::DEFAULT_GROUP)
     {
-        $this->properties = self::DEFAULT_PROPERTIES;
+        $this->properties[$group] = self::DEFAULT_PROPERTIES;
         $this->prefix = self::DEFAULT_PREFIX;
         $this->attributeName = self::DEFAULT_ATTRIBUTE_NAME;
     }

@@ -59,29 +59,34 @@ interface PropertyInterface
     /**
      * @param string $key
      * @param string|array $value
-     * @return $this
+     * @param string $group
+     * @return string
      */
-    public function addProperty(string $key, $value);
+    public function addProperty(string $key, $value, string $group = Property::DEFAULT_GROUP);
 
     /**
      * @param string $key
+     * @param string $group
      * @return string
      */
-    public function getProperty(string $key);
+    public function getProperty(string $key, string $group = Property::DEFAULT_GROUP);
 
     /**
      * @param string $key
+     * @param string $group
      * @return $this
      */
-    public function removeProperty(string $key);
+    public function removeProperty(string $key, string $group = Property::DEFAULT_GROUP);
 
     /**
+     * @param string $group
      * @return string
      */
-    public function toHtml();
+    public function toHtml(string $group = Property::DEFAULT_GROUP);
 
     /**
+     * @param string $group
      * @return bool
      */
-    public function hasData();
+    public function hasData(string $group = Property::DEFAULT_GROUP);
 }
