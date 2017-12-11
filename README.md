@@ -1,5 +1,8 @@
 # Magento 2 SEO
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7efcb7346522430a85e5dd5298ebe9ff)](https://www.codacy.com/app/Staempfli/magento2-module-seo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=staempfli/magento2-module-seo&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/staempfli/magento2-module-seo.svg?branch=develop)](https://travis-ci.org/staempfli/magento2-module-seo)
+
 Magento 2 Module to Improve SEO on your Magento site.
 
 
