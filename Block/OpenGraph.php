@@ -36,8 +36,19 @@ class OpenGraph implements ArgumentInterface, SeoBlockInterface
     public function getMetaData()
     {
         $property = $this->adapter->getProperty();
-        return $property
+        $openGraph = $property
             ->setPrefix('og:')
+            ->setMetaAttributeName('property')
             ->toHtml();
+
+        $productInformation = $property
+            ->setMetaAttributeName('property')
+            ->toHtml('product');
+
+        return sprintf(
+            '%s%s',
+            $openGraph,
+            $productInformation
+        );
     }
 }
