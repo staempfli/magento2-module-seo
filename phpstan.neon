@@ -1,5 +1,0 @@
-parameters:
-    ignoreErrors:
-        - '#Call to method .* on an unknown class .*(Factory|Proxy)\.#'
-        - '#Property .* has unknown class .*(Factory|Proxy) as its type\.#'
-        - '#Parameter .* of method .* has invalid typehint type .*(Factory|Proxy)\.#'

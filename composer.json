@@ -10,7 +10,8 @@
     "magento/framework": "~101.0"
   },
   "require-dev": {
-    "phpstan/phpstan": "^0.9.1",
+    "phpunit/phpunit": "~6.2.0",
+    "codeclimate/php-test-reporter": "0.4.0",
     "magento/marketplace-eqp": "^1.0.5"
   },
   "repositories": [
