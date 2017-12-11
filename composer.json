@@ -8,6 +8,9 @@
     "phpstan/phpstan": "^0.9.1",
     "magento/marketplace-eqp": "^1.0.5"
   },
+  "repositories": [
+    { "type": "composer", "url": "https://repo.magento.com/" }
+  ],
   "type": "magento2-module",
   "license": [
     "OSL-3.0",
