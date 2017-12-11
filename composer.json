@@ -4,6 +4,10 @@
   "require": {
     "php": "~7.0"
   },
+  "require-dev": {
+    "phpstan/phpstan": "^0.9.1",
+    "magento/marketplace-eqp": "^1.0.5"
+  },
   "type": "magento2-module",
   "license": [
     "OSL-3.0",
