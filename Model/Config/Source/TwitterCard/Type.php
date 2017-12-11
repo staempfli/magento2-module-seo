@@ -25,7 +25,7 @@ class Type implements ArrayInterface
      *
      * @var array
      */
-    protected $_options;
+    private $options;
     /**
      * Return options array
      *
@@ -33,14 +33,14 @@ class Type implements ArrayInterface
      */
     public function toOptionArray()
     {
-        if (!$this->_options) {
-            $this->_options = [
+        if (!$this->options) {
+            $this->options = [
                 ['value' => self::CARD_TYPE_SUMMARY, 'label' => __('Summary')],
                 ['value' => self::CARD_TYPE_SUMMARY_LARGE_IMAGE, 'label' => __('Summary with large Image')],
                 ['value' => self::CARD_TYPE_APP, 'label' => __('App')],
                 ['value' => self::CARD_TYPE_PLAYER, 'label' => __('Player')],
             ];
         }
-        return $this->_options;
+        return $this->options;
     }
 }

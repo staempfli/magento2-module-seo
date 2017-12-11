@@ -62,7 +62,7 @@ class Product implements AdapterInterface
         return $this->property;
     }
 
-    private function getImage(\Magento\Catalog\Model\Product$product, string $imageId, array $attributes = []) : Image
+    private function getImage(\Magento\Catalog\Model\Product $product, string $imageId, array $attributes = []) : Image
     {
         return $this->imageBuilder->setProduct($product)
             ->setImageId($imageId)

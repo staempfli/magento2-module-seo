@@ -22,15 +22,15 @@ class Property implements PropertyInterface
     /**
      * @var string
      */
-    protected $prefix = self::DEFAULT_PREFIX;
+    private $prefix = self::DEFAULT_PREFIX;
     /**
      * @var string
      */
-    protected $attributeName = self::DEFAULT_ATTRIBUTE_NAME;
+    private $attributeName = self::DEFAULT_ATTRIBUTE_NAME;
     /**
      * @var array
      */
-    protected $validImageFormats = [
+    private $validImageFormats = [
         'jpg',
         'jpeg',
         'webp',
@@ -89,7 +89,8 @@ class Property implements PropertyInterface
             return $this->addProperty('url', $url);
         }
         throw new \LogicException(
-            sprintf('Not a valid URL: [%s]',
+            sprintf(
+                'Not a valid URL: [%s]',
                 $url
             )
         );
@@ -101,14 +102,19 @@ class Property implements PropertyInterface
      */
     public function setImage(string $image)
     {
-        $extension = strtolower(pathinfo($image, PATHINFO_EXTENSION));
+        $extension = strtolower(pathinfo($image, PATHINFO_EXTENSION)); //@codingStandardsIgnoreLine
         if (in_array($extension, $this->validImageFormats)) {
             return $this->addProperty('image', $image);
         }
         throw new \LogicException(
-            sprintf('Invalid image format provided: [%s], please use on of these [%s]',
+            sprintf(
+                'Invalid image format provided: [%s], please use on of these [%s]',
                 $extension,
-                implode(',', $this->validImageFormats))
+                implode(
+                    ',',
+                    $this->validImageFormats
+                )
+            )
         );
     }
 
@@ -183,7 +189,8 @@ class Property implements PropertyInterface
 
     private function getMetaTag(string $key, string $value) : string
     {
-        return sprintf('<meta %s="%s%s" content="%s" />%s',
+        return sprintf(
+            '<meta %s="%s%s" content="%s" />%s',
             $this->attributeName,
             $this->prefix,
             strip_tags($key),
