@@ -6,7 +6,8 @@
     "magento/module-config": "~101.0",
     "magento/module-catalog": "~102.0",
     "magento/module-cms": "~102.0",
-    "magento/module-theme": "~100.2"
+    "magento/module-theme": "~100.2",
+    "magento/framework": "~101.0"
   },
   "require-dev": {
     "phpstan/phpstan": "^0.9.1",
