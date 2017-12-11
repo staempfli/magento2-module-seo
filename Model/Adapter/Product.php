@@ -43,7 +43,7 @@ class Product implements AdapterInterface
         $product = $this->registry->registry('current_product');
         if ($product) {
             $this->property
-                ->addProperty('type', 'og:product')
+                ->addProperty('og:type', 'og:product', 'product')
                 ->setTitle($product->getName());
 
             $this->property->setDescription($product->getDescription());
