@@ -7,8 +7,6 @@ declare (strict_types=1);
 
 namespace Staempfli\Seo\Model;
 
-use Magento\Framework\DataObject;
-
 class Adapter implements AdapterInterface
 {
     /**
