@@ -1,4 +1,3 @@
-
 language: php
 php:
   - '7.0'
@@ -10,6 +9,7 @@ addons:
 script:
   - ./vendor/bin/phpcs Model/ Block/ --runtime-set ignore_warnings_on_exit true --runtime-set installed_paths vendor/magento/marketplace-eqp --standard=MEQP2
   - ./vendor/bin/phpunit
+  - ./vendor/bin/test-reporter
 
 cache:
   directories:
