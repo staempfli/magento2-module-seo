@@ -2,12 +2,12 @@
   "name": "staempfli/magento2-module-seo",
   "description": "Magento 2 Seo Module",
   "require": {
-    "php": "~7.0",
+    "php": "^7.0|^7.1",
     "magento/module-config": "~101.0",
-    "magento/module-catalog": "~102.0",
-    "magento/module-cms": "~102.0",
+    "magento/module-catalog": "^101.0|^102.0",
+    "magento/module-cms": "^101.0|^102.0",
     "magento/module-theme": "~100.2",
-    "magento/framework": "~101.0"
+    "magento/framework": "^100.1|^101.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~6.2.0",
