@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/staempfli/magento2-module-seo.svg?branch=develop)](https://travis-ci.org/staempfli/magento2-module-seo)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7c22812c1bfe894a2e00/maintainability)](https://codeclimate.com/github/staempfli/magento2-module-seo/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7c22812c1bfe894a2e00/test_coverage)](https://codeclimate.com/github/staempfli/magento2-module-seo/test_coverage)
+
 Magento 2 Module to Improve SEO on your Magento site.
 
 
