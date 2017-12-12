@@ -8,6 +8,9 @@ namespace Staempfli\Seo\Test\Unit;
 
 use Staempfli\Seo\Model\Property;
 
+/**
+ * @coversDefaultClass \Staempfli\Seo\Model\Property
+ */
 final class PropertyTest extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -18,6 +21,18 @@ final class PropertyTest extends \PHPUnit\Framework\TestCase
     public function setUp()
     {
         $this->property = new Property();
+    }
+
+    public function testSetPrefix()
+    {
+        $result = $this->property->setPrefix('og:')->setTitle('test')->toHtml();
+        $this->assertSame('<meta name="og:title" content="test" />' . PHP_EOL, $result);
+    }
+
+    public function testSetMetaAttributeName()
+    {
+        $result = $this->property->setMetaAttributeName('property')->setTitle('test')->toHtml();
+        $this->assertSame('<meta property="title" content="test" />' . PHP_EOL, $result);
     }
 
     public function testSetTitle()
@@ -38,10 +53,22 @@ final class PropertyTest extends \PHPUnit\Framework\TestCase
         $this->assertSame('<meta name="description" content="W&auml;hrend Adam lacht, jagen zw&ouml;lf Boxk&auml;mpfer Eva quer &uuml;ber den gro&szlig;en Sylter Deich - f&uuml;r satte 12.345.667,89 &euro;uro" />' . PHP_EOL, $result);
     }
 
+    public function testSetDescriptionGetReducedTo200Chars()
+    {
+        $result = $this->property->setDescription('Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.')->toHtml();
+        $this->assertSame('<meta name="description" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolo ..." />' . PHP_EOL, $result);
+    }
+
     public function testSetImage()
     {
         $result = $this->property->setImage('http://example.org/test.jpg')->toHtml();
         $this->assertSame('<meta name="image" content="http://example.org/test.jpg" />' . PHP_EOL, $result);
+    }
+
+    public function testSetImageAlt()
+    {
+        $result = $this->property->setImageAlt('Test')->toHtml();
+        $this->assertSame('<meta name="image:alt" content="Test" />' . PHP_EOL, $result);
     }
 
     public function testInvalidImageFormatException()
