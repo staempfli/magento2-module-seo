@@ -5,7 +5,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/7c22812c1bfe894a2e00/maintainability)](https://codeclimate.com/github/staempfli/magento2-module-seo/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7c22812c1bfe894a2e00/test_coverage)](https://codeclimate.com/github/staempfli/magento2-module-seo/test_coverage)
 
-Magento 2 Module to Improve SEO on your Magento site.
+Magento 2 Module to Improve Search Engine Optimization on your Magento site.
 
 
 ## Usage
@@ -15,19 +15,71 @@ The Module will automatically optimize and improve the performance of your Magen
 By Adding: 
 
 - [TwitterCards](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)
+   - For CMS Pages
+        ```html
+        <meta name="twitter:title" content="Home page" />
+        <meta name="twitter:description" content="CMS homepage content goes here." />
+        <meta name="twitter:url" content="http://example.com/" />
+        <meta name="twitter:card" content="summary" />
+        ```
+
+    - For Categories
+        ```html
+        <meta name="twitter:title" content="Demo Category" />
+        <meta name="twitter:url" content="http://example.com/demo-category.html" />
+        <meta name="twitter:description" content="This is a Demo Category" />
+        <meta name="twitter:image" content="http://example.com/media/catalog/category/demo.png" />
+        <meta name="twitter:card" content="summary" />
+        ```
+
+    - For Products
+        ```html
+        <meta name="twitter:title" content="Demo Product" />
+        <meta name="twitter:description" content="Demo Product Short Description" />
+        <meta name="twitter:image" content="http://example.com/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/o/p/demo.png" />
+        <meta name="twitter:url" content="http://example.com/demo-product.html" />
+        <meta name="twitter:card" content="summary" />
+        ```
+    
 - [Structured Data](http://ogp.me/)
+
+    - For CMS Pages
+        ```html
+        <meta property="og:title" content="Home page" />
+        <meta property="og:description" content="CMS homepage content goes here." />
+        <meta property="og:url" content="http://example.com/" />
+        ```
+        
+    - For Categories
+        ```html
+        <meta property="og:title" content="Demo Category" />
+        <meta property="og:url" content="http://example.com/demo-category.html" />
+        <meta property="og:description" content="This is a Demo Category" />
+        <meta property="og:image" content="http://example.com/media/catalog/category/demo.png" />
+        ```
+          
+    - For Products
+        ```html
+        <meta property="og:title" content="Demo Product" />
+        <meta property="og:description" content="Demo Product Short Description" />
+        <meta property="og:image" content="http://example.com/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/o/p/demo.png" />
+        <meta property="og:url" content="http://example.com/demo-product.html" />
+        <meta property="og:type" content="og:product" />
+        <meta property="product:price:amount" content="125.5" />
+        <meta property="product:price:currency" content="CHF"/>
+        ```
 
 Allowing you to set the verification code in the backend for:
 
 - Google Webmaster Tools
 - Bing Webmaster Tools
 - Pinterest
-- Yandex
+- Yandex webmaster Tools
 
 ## Requirements
 
 - PHP >= 7.0.*
-- Magento >= 2.2.1
+- Magento >= 2.1.*
 
 Support
 -------
