@@ -7,11 +7,11 @@ declare (strict_types=1);
 
 namespace Staempfli\Seo\Block;
 
-use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Framework\View\Element\Template;
 use Staempfli\Seo\Model\PropertyInterface;
 use Staempfli\Seo\Model\Config;
 
-class SiteVerification implements ArgumentInterface, SeoBlockInterface
+class SiteVerification extends Template implements SeoBlockInterface
 {
     const GOOLE_SITE_VERIFICATION = 'google-site-verification';
     const MSVALIDATE_01 = 'msvalidate.01';
@@ -28,9 +28,12 @@ class SiteVerification implements ArgumentInterface, SeoBlockInterface
     private $property;
 
     public function __construct(
+        \Magento\Framework\View\Element\Template\Context $context,
         Config $config,
-        PropertyInterface $property
+        PropertyInterface $property,
+        array $data = []
     ) {
+        parent::__construct($context, $data);
         $this->config = $config;
         $this->property = $property;
     }
