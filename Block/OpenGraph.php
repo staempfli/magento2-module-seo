@@ -7,11 +7,11 @@ declare (strict_types=1);
 
 namespace Staempfli\Seo\Block;
 
-use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Framework\View\Element\Template;
 use Staempfli\Seo\Model\AdapterInterface;
 use Staempfli\Seo\Model\Config;
 
-class OpenGraph implements ArgumentInterface, SeoBlockInterface
+class OpenGraph extends Template implements SeoBlockInterface
 {
     /**
      * @var Config
@@ -23,9 +23,12 @@ class OpenGraph implements ArgumentInterface, SeoBlockInterface
     private $adapter;
 
     public function __construct(
+        \Magento\Framework\View\Element\Template\Context $context,
         Config $config,
-        AdapterInterface $adapter
+        AdapterInterface $adapter,
+        array $data = []
     ) {
+        parent::__construct($context, $data);
         $this->config = $config;
         $this->adapter = $adapter;
     }

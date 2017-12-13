@@ -1,8 +1,5 @@
 <?php
 declare(strict_types=1);
-/** @var $block \Magento\Framework\View\Element\Template  */
-/** @var $viewModel \Staempfli\Seo\Block\MetaTags  */
-$viewModel = $block->getData('view_model');
+/** @var $block \Staempfli\Seo\Block\SiteVerification  */
 ?>
-
-<?php echo $viewModel->getMetaData() ?>
+<?php echo $block->getMetaData() ?>
