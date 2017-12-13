@@ -21,6 +21,8 @@ By Adding:
         <meta name="twitter:description" content="CMS homepage content goes here." />
         <meta name="twitter:url" content="http://example.com/" />
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@StaempfliWeb" />
+        <meta name="twitter:creator" content="@mhauri" />
         ```
 
     - For Categories
@@ -30,6 +32,8 @@ By Adding:
         <meta name="twitter:description" content="This is a Demo Category" />
         <meta name="twitter:image" content="http://example.com/media/catalog/category/demo.png" />
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@StaempfliWeb" />
+        <meta name="twitter:creator" content="@mhauri" />
         ```
 
     - For Products
@@ -39,6 +43,8 @@ By Adding:
         <meta name="twitter:image" content="http://example.com/media/catalog/product/cache/0f831c1845fc143d00d6d1ebc49f446a/o/p/demo.png" />
         <meta name="twitter:url" content="http://example.com/demo-product.html" />
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@StaempfliWeb" />
+        <meta name="twitter:creator" content="@mhauri" />
         ```
     
 - [Structured Data](http://ogp.me/)
@@ -76,10 +82,19 @@ Allowing you to set the verification code in the backend for:
 - Pinterest
 - Yandex webmaster Tools
 
+![Search Engine Optimization](docs/assets/configuration.png)
+
+```html
+<meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE" />
+<meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+<meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_CODE" />
+<meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE" />
+```
+
 ## Requirements
 
-- PHP >= 7.0.*
-- Magento >= 2.1.*
+- PHP: 7.0.x | 7.1.x
+- Magento 2.1.x | 2.2.x
 
 Support
 -------
