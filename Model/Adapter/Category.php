@@ -38,19 +38,19 @@ class Category implements AdapterInterface
         $category = $this->registry->registry('current_category');
         if ($category) {
             $this->property
-                ->setTitle($category->getName())
-                ->setUrl($category->getUrl());
+                ->setTitle((string) $category->getName())
+                ->setUrl((string) $category->getUrl());
 
             if ($category->getMetaDescription()) {
-                $this->property->setDescription($category->getMetaDescription());
+                $this->property->setDescription((string) $category->getMetaDescription());
             } elseif ($category->getShortDescription()) {
-                $this->property->setDescription($category->getShortDescription());
+                $this->property->setDescription((string) $category->getShortDescription());
             } else {
-                $this->property->setDescription($category->getDescription());
+                $this->property->setDescription((string) $category->getDescription());
             }
 
             if ($category->getImageUrl()) {
-                $this->property->setImage($category->getImageUrl());
+                $this->property->setImage((string) $category->getImageUrl());
             }
         }
         return $this->property;

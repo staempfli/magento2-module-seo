@@ -44,15 +44,15 @@ class Product implements AdapterInterface
         if ($product) {
             $this->property
                 ->addProperty('og:type', 'og:product', 'product')
-                ->setTitle($product->getName());
+                ->setTitle((string) $product->getName());
 
-            $this->property->setDescription($product->getDescription());
+            $this->property->setDescription((string) $product->getDescription());
             if ($product->getShortDescription()) {
-                $this->property->setDescription($product->getShortDescription());
+                $this->property->setDescription((string) $product->getShortDescription());
             }
 
             if ($product->getImage()) {
-                $this->property->setImage($this->getImage($product, 'product_base_image')->getImageUrl());
+                $this->property->setImage((string) $this->getImage($product, 'product_base_image')->getImageUrl());
             }
 
             $this->property

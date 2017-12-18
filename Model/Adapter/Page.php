@@ -41,9 +41,9 @@ class Page implements AdapterInterface
     {
         if ($this->page->getId()) {
             $this->property
-                ->setTitle($this->page->getTitle())
-                ->setDescription(strip_tags(str_replace(["\r", "\n"], '', $this->page->getContent())))
-                ->setUrl($this->url->getUrl($this->page->getIdentifier()));
+                ->setTitle((string) $this->page->getTitle())
+                ->setDescription((string) strip_tags(str_replace(["\r", "\n"], '', $this->page->getContent())))
+                ->setUrl((string) $this->url->getUrl($this->page->getIdentifier()));
         }
         return $this->property;
     }
