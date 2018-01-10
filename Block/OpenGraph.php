@@ -9,14 +9,9 @@ namespace Staempfli\Seo\Block;
 
 use Magento\Framework\View\Element\Template;
 use Staempfli\Seo\Model\AdapterInterface;
-use Staempfli\Seo\Model\Config;
 
 class OpenGraph extends Template implements SeoBlockInterface
 {
-    /**
-     * @var Config
-     */
-    private $config;
     /**
      * @var AdapterInterface
      */
@@ -24,12 +19,10 @@ class OpenGraph extends Template implements SeoBlockInterface
 
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        Config $config,
         AdapterInterface $adapter,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->config = $config;
         $this->adapter = $adapter;
     }
 
