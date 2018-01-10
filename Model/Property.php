@@ -76,7 +76,13 @@ class Property implements PropertyInterface
         if (strlen($description) >= self::MAX_DESCRIPTION_LENGTH) {
             $description = substr($description, 0, (self::MAX_DESCRIPTION_LENGTH - 4)) . ' ...';
         }
-        return $this->addProperty('description', htmlentities(strip_tags($description)));
+        return $this->addProperty('description',
+            htmlentities(
+                strip_tags(
+                    str_replace(["\r\n", "\r", "\n"], " - ", $description)
+                )
+            )
+        );
     }
 
     /**
