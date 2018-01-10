@@ -9,10 +9,18 @@ namespace Staempfli\Seo\Model\Adapter;
 
 use Staempfli\Seo\Model\AdapterInterface;
 use \Magento\Framework\Registry;
+use Staempfli\Seo\Model\BlockParser;
 use Staempfli\Seo\Model\PropertyInterface;
 
 class Category implements AdapterInterface
 {
+    /**
+     * @var array
+     */
+    private $messageAttributes = [
+        'meta_description',
+        'description'
+    ];
     /**
      * @var Registry
      */
@@ -21,13 +29,19 @@ class Category implements AdapterInterface
      * @var PropertyInterface
      */
     private $property;
+    /**
+     * @var BlockParser
+     */
+    private $blockParser;
 
     public function __construct(
         PropertyInterface $property,
+        BlockParser $blockParser,
         Registry $registry
     ) {
         $this->registry = $registry;
         $this->property = $property;
+        $this->blockParser = $blockParser;
     }
 
     public function getProperty() : PropertyInterface
@@ -41,12 +55,18 @@ class Category implements AdapterInterface
                 ->setTitle((string) $category->getName())
                 ->setUrl((string) $category->getUrl());
 
-            if ($category->getMetaDescription()) {
-                $this->property->setDescription((string) $category->getMetaDescription());
-            } elseif ($category->getShortDescription()) {
-                $this->property->setDescription((string) $category->getShortDescription());
-            } else {
-                $this->property->setDescription((string) $category->getDescription());
+            foreach ($this->messageAttributes as $messageAttribute) {
+                if ($category->getData($messageAttribute)) {
+                    $this->property->setDescription($category->getData($messageAttribute));
+                }
+            }
+
+            if ($category->hasLandingPage() && !$this->property->getProperty('description')) {
+                $this->property->setDescription(
+                    $this->blockParser->getBlockContentById(
+                        (int) $category->getLandingPage()
+                    )
+                );
             }
 
             if ($category->getImageUrl()) {
