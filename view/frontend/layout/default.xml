@@ -7,8 +7,9 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <referenceContainer name="head.additional">
-        <block class="Staempfli\Seo\Block\SiteVerification" name="seo.site.verification" template="Staempfli_Seo::siteverification.phtml"/>
-        <block class="Staempfli\Seo\Block\TwitterCard" name="seo.twitter.card" template="Staempfli_Seo::twittercard.phtml"/>
-        <block class="Staempfli\Seo\Block\OpenGraph" name="seo.open.graph" template="Staempfli_Seo::opengraph.phtml"/>
+        <block class="Staempfli\Seo\Block\SiteVerification" name="seo.site.verification" template="Staempfli_Seo::default.phtml"/>
+        <block class="Staempfli\Seo\Block\TwitterCard" name="seo.twitter.card" template="Staempfli_Seo::default.phtml"/>
+        <block class="Staempfli\Seo\Block\OpenGraph" name="seo.open.graph" template="Staempfli_Seo::default.phtml"/>
+        <block class="Staempfli\Seo\Block\HrefLang" name="seo.href.lang" template="Staempfli_Seo::default.phtml"/>
     </referenceContainer>
 </page>
