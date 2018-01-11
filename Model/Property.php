@@ -76,7 +76,8 @@ class Property implements PropertyInterface
         if (strlen($description) >= self::MAX_DESCRIPTION_LENGTH) {
             $description = substr($description, 0, (self::MAX_DESCRIPTION_LENGTH - 4)) . ' ...';
         }
-        return $this->addProperty('description',
+        return $this->addProperty(
+            'description',
             htmlentities(
                 strip_tags(
                     str_replace(["\r\n", "\r", "\n"], " - ", $description)
@@ -159,7 +160,7 @@ class Property implements PropertyInterface
     public function toHtml(string $group = self::DEFAULT_GROUP) : string
     {
         $html = $this->renderProperties($this->properties, $group);
-        $this->reset($group);
+        $this->resetValues($group);
         return $html;
     }
 
@@ -205,7 +206,7 @@ class Property implements PropertyInterface
         );
     }
 
-    private function reset(string $group = self::DEFAULT_GROUP)
+    private function resetValues(string $group = self::DEFAULT_GROUP)
     {
         $this->properties[$group] = self::DEFAULT_PROPERTIES;
         $this->prefix = self::DEFAULT_PREFIX;
