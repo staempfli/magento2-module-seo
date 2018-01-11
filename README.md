@@ -75,6 +75,12 @@ By Adding:
         <meta property="product:price:currency" content="CHF"/>
         ```
 
+- [Language annotations](https://support.google.com/webmasters/answer/189077?hl=en)
+    ```html
+    <link rel="alternate" hreflang="fr" href="http://example.com/fr/content-pages/demo.html" />
+    <link rel="alternate" hreflang="en" href="http://example.com/en/content-pages/demo.html" />
+    ```
+
 Allowing you to set the verification code in the backend for:
 
 - Google Webmaster Tools
