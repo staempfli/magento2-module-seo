@@ -16,6 +16,14 @@ use \Magento\Framework\Registry;
 class Product implements AdapterInterface
 {
     /**
+     * @var array
+     */
+    private $messageAttributes = [
+        'meta_description',
+        'short_description',
+        'description'
+    ];
+    /**
      * @var PropertyInterface
      */
     private $property;
@@ -46,9 +54,10 @@ class Product implements AdapterInterface
                 ->addProperty('og:type', 'og:product', 'product')
                 ->setTitle((string) $product->getName());
 
-            $this->property->setDescription((string) $product->getDescription());
-            if ($product->getShortDescription()) {
-                $this->property->setDescription((string) $product->getShortDescription());
+            foreach ($this->messageAttributes as $messageAttribute) {
+                if ($product->getData($messageAttribute)) {
+                    $this->property->setDescription((string) $product->getData($messageAttribute));
+                }
             }
 
             if ($product->getImage()) {
