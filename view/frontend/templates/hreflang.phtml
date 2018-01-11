@@ -1,0 +1,10 @@
+<?php
+declare(strict_types=1);
+/** @var $block Staempfli\Seo\Block\HrefLang */
+$alternatives = $block->getAlternatives();
+?>
+<?php if($alternatives): ?>
+    <?php foreach($alternatives as $hrefLang => $url): ?>
+        <link rel="alternate" hreflang="<?php echo $hrefLang; ?>" href="<?php echo $url; ?>" />
+    <?php endforeach; ?>
+<?php endif; ?>

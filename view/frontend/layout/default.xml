@@ -10,6 +10,6 @@
         <block class="Staempfli\Seo\Block\SiteVerification" name="seo.site.verification" template="Staempfli_Seo::default.phtml"/>
         <block class="Staempfli\Seo\Block\TwitterCard" name="seo.twitter.card" template="Staempfli_Seo::default.phtml"/>
         <block class="Staempfli\Seo\Block\OpenGraph" name="seo.open.graph" template="Staempfli_Seo::default.phtml"/>
-        <block class="Staempfli\Seo\Block\HrefLang" name="seo.href.lang" template="Staempfli_Seo::default.phtml"/>
+        <block class="Staempfli\Seo\Block\HrefLang" name="seo.href.lang" template="Staempfli_Seo::hreflang.phtml"/>
     </referenceContainer>
 </page>
