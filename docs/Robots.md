@@ -14,4 +14,4 @@ You can define a robots.txt in the "URL Rewrites" section.
 3. as Target Path use "robots/index/index"
 4. Do not use Redirect and save.
 
-![Url Rewrites](assets/url-rewrites.png)
+![Url Rewrites](assets/url-rewrite.png)
