@@ -38,7 +38,7 @@ class SiteVerification extends Template implements SeoBlockInterface
         $this->property = $property;
     }
 
-    public function getMetaData() : string
+    public function getMetaData()
     {
         $this->property->addProperty(self::GOOLE_SITE_VERIFICATION, $this->config->getGoogleSiteVerificationCode());
         $this->property->addProperty(self::MSVALIDATE_01, $this->config->getBingSiteVerificationCode());

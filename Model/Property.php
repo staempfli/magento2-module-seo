@@ -7,7 +7,7 @@ declare (strict_types=1);
 
 namespace Staempfli\Seo\Model;
 
-class Property implements PropertyInterface
+final class Property implements PropertyInterface
 {
     const DEFAULT_GROUP = 'default';
     const DEFAULT_PROPERTIES = [];
@@ -64,7 +64,7 @@ class Property implements PropertyInterface
      */
     public function setTitle(string $title)
     {
-        return $this->addProperty('title', strip_tags($title));
+        return $this->addProperty('title', $this->getFilteredInput($title));
     }
 
     /**
@@ -73,16 +73,13 @@ class Property implements PropertyInterface
      */
     public function setDescription(string $description)
     {
+        $description = $this->getFilteredInput($description);
         if (strlen($description) >= self::MAX_DESCRIPTION_LENGTH) {
             $description = substr($description, 0, (self::MAX_DESCRIPTION_LENGTH - 4)) . ' ...';
         }
         return $this->addProperty(
             'description',
-            htmlentities(
-                strip_tags(
-                    str_replace(["\r\n", "\r", "\n"], " - ", $description)
-                )
-            )
+            $description
         );
     }
 
@@ -204,6 +201,13 @@ class Property implements PropertyInterface
             strip_tags($value),
             PHP_EOL
         );
+    }
+
+    private function getFilteredInput(string $input) : string
+    {
+        $input = trim(strip_tags(str_replace(["\r\n", "\r", "\n"], "", $input)));
+        $input = preg_replace('/\s+/', ' ', $input);
+        return htmlentities($input);
     }
 
     private function resetValues(string $group = self::DEFAULT_GROUP)

@@ -4,7 +4,7 @@ declare (strict_types=1);
  * Copyright © 2017 Stämpfli AG. All rights reserved.
  * @author marcel.hauri@staempfli.com
  */
-namespace Staempfli\Seo\Test\Unit;
+namespace Staempfli\Seo\Test\Unit\Model;
 
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use Magento\Framework\App\Config\ScopeConfigInterface;

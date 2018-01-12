@@ -4,7 +4,7 @@ declare (strict_types=1);
  * Copyright © 2017 Stämpfli AG. All rights reserved.
  * @author marcel.hauri@staempfli.com
  */
-namespace Staempfli\Seo\Test\Unit;
+namespace Staempfli\Seo\Test\Unit\Model;
 
 use Staempfli\Seo\Model\Property;
 
@@ -18,9 +18,18 @@ final class PropertyTest extends \PHPUnit\Framework\TestCase
      */
     private $property;
 
+    /**
+     * @var \Magento\Cms\Model\Template\FilterProvider
+     */
+    private $filterProvider;
+
     public function setUp()
     {
-        $this->property = new Property();
+        $this->filterProvider = $this->getMockBuilder(\Magento\Cms\Model\Template\FilterProvider::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->property = new Property($this->filterProvider);
     }
 
     public function testSetPrefix()
