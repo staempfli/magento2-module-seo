@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2018 Stämpfli AG. All rights reserved.
+ * @author marcel.hauri@staempfli.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Staempfli_Seo::search_engine_optimization" title="Search Engine Optimization" translate="title" module="Staempfli_Seo" sortOrder="100" parent="Magento_Backend::marketing_seo" action="adminhtml/system_config/edit/section/seo" resource="Staempfli_Seo::seo"/>
+    </menu>
+</config>

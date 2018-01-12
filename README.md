@@ -80,7 +80,7 @@ By Adding:
     <link rel="alternate" hreflang="fr" href="http://example.com/fr/content-pages/demo.html" />
     <link rel="alternate" hreflang="en" href="http://example.com/en/content-pages/demo.html" />
     ```
-
+## Webmaster Tools
 Allowing you to set the verification code in the backend for:
 
 - Google Webmaster Tools
@@ -96,6 +96,10 @@ Allowing you to set the verification code in the backend for:
 <meta name="p:domain_verify" content="YOUR_PINTEREST_VERIFICATION_CODE" />
 <meta name="yandex-verification" content="YOUR_YANDEX_VERIFICATION_CODE" />
 ```
+
+## Robots (robots.txt)
+
+See: [Robots Configuration](docs/Robots.md)
 
 ## Requirements
 

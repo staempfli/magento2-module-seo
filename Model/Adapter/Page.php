@@ -47,10 +47,11 @@ class Page implements AdapterInterface
     public function getProperty() : PropertyInterface
     {
         if ($this->page->getId()) {
-            $this->property
-                ->setTitle((string) $this->page->getTitle())
-                ->setDescription((string) $this->filterProvider->getBlockFilter()->filter($this->page->getContent()))
-                ->setUrl((string) $this->url->getUrl($this->page->getIdentifier()));
+            $this->property->setTitle((string) $this->page->getTitle());
+            $this->property->setDescription(
+                (string) $this->filterProvider->getBlockFilter()->filter($this->page->getContent())
+            );
+            $this->property->setUrl((string) $this->url->getUrl($this->page->getIdentifier()));
         }
         return $this->property;
     }

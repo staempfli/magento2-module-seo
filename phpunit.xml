@@ -15,6 +15,7 @@
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">Model</directory>
             <directory suffix=".php">Block</directory>
+            <directory suffix=".php">Controller</directory>
         </whitelist>
     </filter>
     <logging>

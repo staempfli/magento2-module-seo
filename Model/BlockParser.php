@@ -24,7 +24,11 @@ class BlockParser
 
     public function getBlockContentById(int $blockId) : string
     {
-        $data = $this->blockRepository->getById($blockId)->toArray();
-        return html_entity_decode($data['content']) ?? ''; //@codingStandardsIgnoreLine
+        try {
+            $cmsBlock = $this->blockRepository->getById($blockId);
+            return html_entity_decode($cmsBlock->getData('content')) ?? ''; //@codingStandardsIgnoreLine
+        } catch (\Exception $e) {
+            return '';
+        }
     }
 }

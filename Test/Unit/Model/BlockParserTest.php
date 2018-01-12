@@ -18,31 +18,38 @@ final class BlockParserTest extends \PHPUnit\Framework\TestCase
      * @var BlockParser
      */
     private $blockParser;
-    /**
-     * @var \Magento\Cms\Api\BlockRepositoryInterface
-     */
-    private $blockRepositoryInterface;
+    private $cmsBlock;
+    private $blockRepository;
 
     public function setUp()
     {
-        $objectManager = new ObjectManager($this);
-        $this->blockRepositoryInterface = $this->getMockForAbstractClass(
-            'Magento\Cms\Api\BlockRepositoryInterface',
-            [],
-            '',
-            false
-        );
-
-        $this->blockParser = $objectManager->getObject(
-            BlockParser::class,
-            [
-                'BlockRepositoryInterface' => $this->blockRepositoryInterface
-            ]
-        );
+        $this->cmsBlock = $this->getMockBuilder(\Magento\Cms\Model\Block::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->blockRepository = $this->getMockBuilder(\Magento\Cms\Api\BlockRepositoryInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->blockParser = new BlockParser($this->blockRepository);
     }
 
     public function testGetBlockContentById()
     {
-        $this->markTestSkipped();
+        $this->blockRepository->expects($this->once())
+            ->method('getById')
+            ->with(1)
+            ->willReturn($this->cmsBlock);
+        $this->cmsBlock->expects($this->once())
+            ->method('getData')
+            ->willReturn('test');
+        $this->assertSame('test', $this->blockParser->getBlockContentById(1));
+    }
+
+    public function testGetBlockContentByIdShowsEmptyStringWhenThrowsException()
+    {
+        $this->blockRepository->expects($this->once())
+            ->method('getById')
+            ->with(2)
+            ->willThrowException(new \Exception('Exception'));
+        $this->assertSame('', $this->blockParser->getBlockContentById(2));
     }
 }

@@ -75,4 +75,10 @@ final class ConfigTest extends \PHPUnit\Framework\TestCase
         $result = $this->config->getDefaultTwitterCardType();
         $this->assertSame("", $result);
     }
+
+    public function testGetRobotsContent()
+    {
+        $result = $this->config->getRobotsContent();
+        $this->assertSame("", $result);
+    }
 }

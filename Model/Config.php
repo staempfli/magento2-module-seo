@@ -23,6 +23,7 @@ class Config
     const XML_PATH_SEO_TWITTER_DEFAULT_TYPE = 'seo/twitter_card/type';
     const XML_PATH_SEO_TWITTER_DEFAULT_SITE = 'seo/twitter_card/site';
     const XML_PATH_SEO_TWITTER_DEFAULT_CREATOR = 'seo/twitter_card/creator';
+    const XML_PATH_ROBOTS_CONTENT = 'seo/robots/content';
     /**
      * @var ScopeConfigInterface
      */
@@ -71,6 +72,11 @@ class Config
     public function getDefaultTwitterCardCreator() : string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_TWITTER_DEFAULT_CREATOR);
+    }
+
+    public function getRobotsContent() : string
+    {
+        return $this->getConfigValue(self::XML_PATH_ROBOTS_CONTENT);
     }
 
     private function getConfigValue(string $configPath) : string

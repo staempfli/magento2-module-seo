@@ -11,6 +11,15 @@
             <twitter_card>
                 <type>summary</type>
             </twitter_card>
+            <robots>
+                <content>
+User-agent: *
+Disallow: /catalog/
+Disallow: /checkout/
+Disallow: /customer/
+Disallow: /errors/
+                </content>
+            </robots>
         </seo>
     </default>
 </config>

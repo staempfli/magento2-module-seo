@@ -6,13 +6,12 @@ declare (strict_types=1);
  */
 namespace Staempfli\Seo\Test\Unit\Block;
 
-use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 use Staempfli\Seo\Block\HrefLang;
 
 /**
  * @coversDefaultClass \Staempfli\Seo\Block\HrefLang
  */
-final class HrefLangTest extends \PHPUnit\Framework\TestCase
+final class HrefLangTest extends AbstractBlockSetup
 {
     /**
      * @var HrefLang
@@ -21,14 +20,22 @@ final class HrefLangTest extends \PHPUnit\Framework\TestCase
 
     public function setUp()
     {
-        $objectManager = new ObjectManager($this);
-        $this->block = $objectManager->getObject(
-            HrefLang::class
+        parent::setUp();
+        $switcher = $this->getMockBuilder(\Magento\Store\Block\Switcher::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $this->block = $this->objectManager->getObject(
+            HrefLang::class,
+            [
+                'context' => $this->context,
+                'switcher' => $switcher
+            ]
         );
     }
 
     public function testGetAlternatives()
     {
-        $this->markTestSkipped();
+        $this->assertSame([], $this->block->getAlternatives());
     }
 }
