@@ -1,7 +1,7 @@
 # Magento 2 Search Engine Optimization
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7efcb7346522430a85e5dd5298ebe9ff)](https://www.codacy.com/app/Staempfli/magento2-module-seo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=staempfli/magento2-module-seo&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/staempfli/magento2-module-seo.svg?branch=develop)](https://travis-ci.org/staempfli/magento2-module-seo)
+[![Build Status](https://travis-ci.org/staempfli/magento2-module-seo.svg?branch=master)](https://travis-ci.org/staempfli/magento2-module-seo)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7c22812c1bfe894a2e00/maintainability)](https://codeclimate.com/github/staempfli/magento2-module-seo/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7c22812c1bfe894a2e00/test_coverage)](https://codeclimate.com/github/staempfli/magento2-module-seo/test_coverage)
 
