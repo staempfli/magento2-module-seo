@@ -8,6 +8,14 @@
 Magento 2 Module to Improve Search Engine Optimization (SEO) on your Magento site.
 
 
+## Installation
+
+Install the module via composer like so:
+
+```sh
+composer require staempfli/magento2-module-seo
+```
+
 ## Usage
 
 The Module will automatically optimize and improve the performance of your Magento-based store in Search Engines.
