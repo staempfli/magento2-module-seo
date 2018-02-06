@@ -10,7 +10,9 @@ namespace Staempfli\Seo\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Store\Api\Data\StoreInterface;
+use Magento\Store\Model\Group;
 use Magento\Store\Model\Store;
+use Magento\Store\Model\Website;
 
 class HrefLang extends Template
 {
@@ -34,7 +36,7 @@ class HrefLang extends Template
     public function getAlternatives()
     {
         $data = [];
-        foreach ($this->_storeManager->getStores() as $store) {
+        foreach ($this->getStores() as $store) {
             if ($this->isCurrentStore($store)) {
                 continue;
             }
@@ -72,5 +74,25 @@ class HrefLang extends Template
         $localeCode = $this->_scopeConfig->getValue('seo/hreflang/locale_code', 'stores', $store->getId())
             ?: $this->_scopeConfig->getValue('general/locale/code', 'stores', $store->getId());
         return str_replace('_', '-', strtolower($localeCode));
+    }
+
+    /**
+     * @return Store[]
+     */
+    private function getStores()
+    {
+        if ($this->_scopeConfig->isSetFlag('seo/hreflang/same_website_only')) {
+            $stores = [];
+            /** @var Website $website */
+            $website = $this->_storeManager->getWebsite();
+            foreach ($website->getGroups() as $group) {
+                /** @var Group $group */
+                foreach ($group->getStores() as $store) {
+                    $stores[] = $store;
+                }
+            }
+            return $stores;
+        }
+        return $this->_storeManager->getStores();
     }
 }

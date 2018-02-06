@@ -30,10 +30,10 @@ class AlternativeUrlService
         ProductUrlRetriever $productUrlRetriever,
         HttpRequest $request
     ) {
-        $this->request = $request;
         $this->cmsPageUrlRetriever = $cmsPageUrlRetriever;
         $this->categoryUrlRetriever = $categoryUrlRetriever;
         $this->productUrlRetriever = $productUrlRetriever;
+        $this->request = $request;
     }
 
     /**
@@ -48,7 +48,9 @@ class AlternativeUrlService
                 return $this->categoryUrlRetriever->getUrl($this->request->getParam('id'), $store);
             case 'catalog_product_view':
                 return $this->productUrlRetriever->getUrl($this->request->getParam('id'), $store);
+            case 'cms_page_view':
+                return $this->cmsPageUrlRetriever->getUrl($this->request->getParam('page_id'), $store);
         }
-        return $this->cmsPageUrlRetriever->getUrl('identifier', $store);
+        return '';
     }
 }
