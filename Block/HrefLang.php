@@ -69,7 +69,8 @@ class HrefLang extends Template
      */
     private function getLocaleCode($store)
     {
-        return $this->_scopeConfig->getValue('seo/hreflang/locale_code', 'stores', $store->getId())
+        $localeCode = $this->_scopeConfig->getValue('seo/hreflang/locale_code', 'stores', $store->getId())
             ?: $this->_scopeConfig->getValue('general/locale/code', 'stores', $store->getId());
+        return str_replace('_', '-', strtolower($localeCode));
     }
 }
