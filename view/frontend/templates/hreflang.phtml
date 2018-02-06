@@ -5,6 +5,6 @@ $alternatives = $block->getAlternatives();
 ?>
 <?php if($alternatives): ?>
     <?php foreach($alternatives as $hrefLang => $url): ?>
-        <link rel="alternate" hreflang="<?php echo $hrefLang; ?>" href="<?php echo $url; ?>" />
+        <link rel="alternate" hreflang="<?php echo strtolower($hrefLang) ?>" href="<?php echo $url ?>" />
     <?php endforeach; ?>
-<?php endif; ?>
+<?php endif ?>
