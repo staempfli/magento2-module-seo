@@ -37,10 +37,7 @@ class HrefLang extends Template
     {
         $data = [];
         foreach ($this->getStores() as $store) {
-            if ($this->isCurrentStore($store)) {
-                continue;
-            }
-            if ($url = $this->getStoreUrl($store)) {
+            if ((!$this->isCurrentStore($store)) && $url = $this->getStoreUrl($store)) {
                 $data[$this->getLocaleCode($store)] = $url;
             }
         }
@@ -82,17 +79,25 @@ class HrefLang extends Template
     private function getStores()
     {
         if ($this->_scopeConfig->isSetFlag('seo/hreflang/same_website_only')) {
-            $stores = [];
-            /** @var Website $website */
-            $website = $this->_storeManager->getWebsite();
-            foreach ($website->getGroups() as $group) {
-                /** @var Group $group */
-                foreach ($group->getStores() as $store) {
-                    $stores[] = $store;
-                }
-            }
-            return $stores;
+            return $this->getSameWebsiteStores();
         }
         return $this->_storeManager->getStores();
+    }
+
+    /**
+     * @return Store[]
+     */
+    private function getSameWebsiteStores()
+    {
+        $stores = [];
+        /** @var Website $website */
+        $website = $this->_storeManager->getWebsite();
+        foreach ($website->getGroups() as $group) {
+            /** @var Group $group */
+            foreach ($group->getStores() as $store) {
+                $stores[] = $store;
+            }
+        }
+        return $stores;
     }
 }
