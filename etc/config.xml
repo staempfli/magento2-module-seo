@@ -20,6 +20,9 @@ Disallow: /customer/
 Disallow: /errors/
                 </content>
             </robots>
+            <hreflang>
+                <same_website_only>0</same_website_only>
+            </hreflang>
         </seo>
     </default>
 </config>

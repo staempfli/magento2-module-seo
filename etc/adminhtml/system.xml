@@ -11,21 +11,21 @@
             <label>Search Engine Optimization</label>
             <tab>general</tab>
             <resource>Staempfli_Seo::seo</resource>
-            <group id="verifications" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="verifications" translate="label,comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Site Verification Codes</label>
-                <field id="google" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="google" translate="label,comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Google</label>
                     <comment>https://support.google.com/webmasters/answer/35179</comment>
                 </field>
-                <field id="bing" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="bing" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Bing</label>
                     <comment>https://www.bing.com/webmaster/help/how-to-verify-ownership-of-your-site-afcfefc6</comment>
                 </field>
-                <field id="pinterest" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="pinterest" translate="label,comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Pinterest</label>
                     <comment>https://help.pinterest.com/en/articles/confirm-your-website</comment>
                 </field>
-                <field id="yandex" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="yandex" translate="label,comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Yandex</label>
                     <comment>https://yandex.com/support/webmaster/service/rights.html#how-to</comment>
                 </field>
@@ -36,20 +36,33 @@
                     <label>Default Card Type</label>
                     <source_model>Staempfli\Seo\Model\Config\Source\TwitterCard\Type</source_model>
                 </field>
-                <field id="site" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="site" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Default Username for Site</label>
                     <comment>@username for the website used in the card footer.</comment>
                 </field>
-                <field id="creator" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="creator" translate="label,comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Default Creator / Author</label>
                     <comment>@username for the content creator / author.</comment>
                 </field>
             </group>
-            <group id="robots" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+            <group id="robots" translate="label,comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Robots</label>
                 <field id="content" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Content</label>
                     <comment>robots.txt content, sitemaps will be added automatically when defined</comment>
+                </field>
+            </group>
+            <group id="hreflang" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>hreflang</label>
+                <field id="same_website_only" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Use hreflang tags for stores from the same website only.</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="locale_code" translate="label,comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Locale Code</label>
+                    <comment><![CDATA[
+                    Used for HrefLang tag, see <a href="https://support.google.com/webmasters/answer/189077" target="_blank">https://support.google.com/webmasters/answer/189077</a>. Can be like "en" or "en_US". if not set, the normal locale code will be used.
+                    ]]></comment>
                 </field>
             </group>
         </section>
