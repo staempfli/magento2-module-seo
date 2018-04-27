@@ -6,6 +6,9 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Staempfli\Seo\Api\CmsPageUrlRetrieverInterface" type="Staempfli\Seo\Service\HrefLang\CmsPageUrlRetriever" />
+    <preference for="Staempfli\Seo\Api\CategoryUrlRetrieverInterface" type="Staempfli\Seo\Service\HrefLang\CategoryUrlRetriever" />
+    <preference for="Staempfli\Seo\Api\ProductUrlRetrieverInterface" type="Staempfli\Seo\Service\HrefLang\ProductUrlRetriever" />
     <type name="Magento\Framework\View\Page\Config">
         <plugin name="staempfli_seo" type="Staempfli\Seo\Plugin\PageConfigPlugin" />
     </type>

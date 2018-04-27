@@ -6,9 +6,9 @@ use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Model\Category;
 use Magento\CatalogUrlRewrite\Model\CategoryUrlPathGenerator;
 use Magento\Store\Model\Store;
-use Staempfli\Seo\Api\UrlRetrieverInterface;
+use Staempfli\Seo\Api\CategoryUrlRetrieverInterface;
 
-class CategoryUrlRetriever implements UrlRetrieverInterface
+class CategoryUrlRetriever implements CategoryUrlRetrieverInterface
 {
     /**
      * @var CategoryRepositoryInterface

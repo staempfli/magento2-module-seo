@@ -4,30 +4,33 @@ namespace Staempfli\Seo\Service\HrefLang;
 
 use Magento\Framework\App\Request\Http as HttpRequest;
 use Magento\Store\Model\Store;
+use Staempfli\Seo\Api\CategoryUrlRetrieverInterface;
+use Staempfli\Seo\Api\CmsPageUrlRetrieverInterface;
+use Staempfli\Seo\Api\ProductUrlRetrieverInterface;
 
 class AlternativeUrlService
 {
     /**
-     * @var CmsPageUrlRetriever
+     * @var CmsPageUrlRetrieverInterface
      */
     private $cmsPageUrlRetriever;
+    /**
+     * @var CategoryUrlRetrieverInterface
+     */
+    private $categoryUrlRetriever;
+    /**
+     * @var ProductUrlRetrieverInterface
+     */
+    private $productUrlRetriever;
     /**
      * @var HttpRequest
      */
     private $request;
-    /**
-     * @var CategoryUrlRetriever
-     */
-    private $categoryUrlRetriever;
-    /**
-     * @var ProductUrlRetriever
-     */
-    private $productUrlRetriever;
 
     public function __construct(
-        CmsPageUrlRetriever $cmsPageUrlRetriever,
-        CategoryUrlRetriever $categoryUrlRetriever,
-        ProductUrlRetriever $productUrlRetriever,
+        CmsPageUrlRetrieverInterface $cmsPageUrlRetriever,
+        CategoryUrlRetrieverInterface $categoryUrlRetriever,
+        ProductUrlRetrieverInterface $productUrlRetriever,
         HttpRequest $request
     ) {
         $this->cmsPageUrlRetriever = $cmsPageUrlRetriever;
