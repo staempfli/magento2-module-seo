@@ -8,7 +8,6 @@ use Magento\CmsUrlRewrite\Model\CmsPageUrlPathGenerator;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Store\Model\Store;
 use Staempfli\Seo\Api\CmsPageUrlRetrieverInterface;
-use Staempfli\Seo\Api\UrlRetrieverInterface;
 
 class CmsPageUrlRetriever implements CmsPageUrlRetrieverInterface
 {

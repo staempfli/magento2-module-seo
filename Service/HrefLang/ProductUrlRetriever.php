@@ -7,7 +7,6 @@ use Magento\Catalog\Model\Product;
 use Magento\CatalogUrlRewrite\Model\ProductUrlPathGenerator;
 use Magento\Store\Model\Store;
 use Staempfli\Seo\Api\ProductUrlRetrieverInterface;
-use Staempfli\Seo\Api\UrlRetrieverInterface;
 
 class ProductUrlRetriever implements ProductUrlRetrieverInterface
 {
