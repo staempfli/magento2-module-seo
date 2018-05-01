@@ -22,7 +22,6 @@ class PageConfigPlugin
      * @param Subject $subject
      * @param string $elementType
      * @return string[]
-     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function beforeGetElementAttributes(Subject $subject, $elementType)
     {
