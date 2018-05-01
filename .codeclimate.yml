@@ -1,0 +1,5 @@
+---
+exclude_paths:
+- build/
+- docs/
+- Test/

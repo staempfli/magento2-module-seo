@@ -1,5 +1,5 @@
 <?php
-declare (strict_types=1);
+declare(strict_types=1);
 /**
  * Copyright © 2018 Stämpfli AG. All rights reserved.
  * @author marcel.hauri@staempfli.com
@@ -25,7 +25,8 @@ final class TwitterCardTest extends AbstractBlockSetup
             $this->context,
             $this->config,
             $this->adapterInterface,
-            []);
+            []
+        );
     }
 
     public function testGetMetaData()

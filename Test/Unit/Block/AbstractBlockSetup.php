@@ -40,13 +40,10 @@ abstract class AbstractBlockSetup extends \PHPUnit\Framework\TestCase
         $this->context = $this->getMockBuilder(\Magento\Framework\View\Element\Template\Context::class)
             ->disableOriginalConstructor()
             ->getMock();
-
         $this->config = $this->getMockBuilder(Config::class)
             ->disableOriginalConstructor()
             ->getMock();
-
         $this->propertyInterface = new Property();
-
         $this->adapterInterface = $this->getMockBuilder(AdapterInterface::class)
             ->disableOriginalConstructor()
             ->getMock();

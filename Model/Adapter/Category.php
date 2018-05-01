@@ -1,5 +1,5 @@
 <?php
-declare (strict_types=1);
+declare(strict_types=1);
 /**
  * Copyright © 2017 Stämpfli AG. All rights reserved.
  * @author marcel.hauri@staempfli.com
@@ -51,9 +51,8 @@ class Category implements AdapterInterface
          */
         $category = $this->registry->registry('current_category');
         if ($category) {
-            $this->property
-                ->setTitle((string) $category->getName())
-                ->setUrl((string) $category->getUrl());
+            $this->property->setTitle((string) $category->getName());
+            $this->property->setUrl((string) $category->getUrl());
 
             foreach ($this->messageAttributes as $messageAttribute) {
                 if ($category->getData($messageAttribute)) {
