@@ -7,7 +7,7 @@ It will also add automatically the Sitemaps when defined in "Marketing > Sitemap
 
 To make the /robots.txt available to the public you  have to add a new rule to the URL Rewrites for each store.
 
-## URL Rewrites
+## URL Rewrites (Only Magento 2.1.x)
 You can define a robots.txt in the "URL Rewrites" section.
 1. Crete a URL Rewrite from type "Custom"
 2. as Request Path use "robots.txt"
