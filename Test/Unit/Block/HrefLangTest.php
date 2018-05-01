@@ -36,10 +36,15 @@ final class HrefLangTest extends AbstractBlockSetup
             ->getMockForAbstractClass();
         $storeMock->method('getId')->willReturn(1);
 
+        $store2Mock = $this->getMockBuilder(StoreInterface::class)
+            ->disableOriginalConstructor()
+            ->getMockForAbstractClass();
+        $store2Mock->method('getId')->willReturn(2);
+
         $storeManagerMock = $this->getMockBuilder(StoreManagerInterface::class)
             ->disableOriginalConstructor()
             ->getMockForAbstractClass();
-        $storeManagerMock->method('getStores')->willReturn([$storeMock]);
+        $storeManagerMock->method('getStores')->willReturn([$storeMock, $store2Mock]);
         $storeManagerMock->method('getStore')->willReturn($storeMock);
 
         $scopeConfigBlock = $this->getMockBuilder(ScopeConfigInterface::class)

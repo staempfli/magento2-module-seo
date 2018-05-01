@@ -18,18 +18,9 @@ final class PropertyTest extends \PHPUnit\Framework\TestCase
      */
     private $property;
 
-    /**
-     * @var \Magento\Cms\Model\Template\FilterProvider
-     */
-    private $filterProvider;
-
     public function setUp()
     {
-        $this->filterProvider = $this->getMockBuilder(\Magento\Cms\Model\Template\FilterProvider::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $this->property = new Property($this->filterProvider);
+        $this->property = new Property();
     }
 
     public function testSetPrefix()
