@@ -45,8 +45,7 @@ class AlternativeUrlService
      */
     public function getAlternativeUrl($store)
     {
-        switch ($this->request->getFullActionName())
-        {
+        switch ($this->request->getFullActionName()) {
             case 'catalog_category_view':
                 return $this->categoryUrlRetriever->getUrl($this->request->getParam('id'), $store);
             case 'catalog_product_view':
