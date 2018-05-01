@@ -50,9 +50,8 @@ class Product implements AdapterInterface
     {
         $product = $this->registry->registry('current_product');
         if ($product) {
-            $this->property
-                ->addProperty('og:type', 'og:product', 'product')
-                ->setTitle((string) $product->getName());
+            $this->property->addProperty('og:type', 'og:product', 'product');
+            $this->property->setTitle((string) $product->getName());
 
             foreach ($this->messageAttributes as $messageAttribute) {
                 if ($product->getData($messageAttribute)) {
@@ -64,9 +63,8 @@ class Product implements AdapterInterface
                 $this->property->setImage((string) $this->getImage($product, 'product_base_image')->getImageUrl());
             }
 
-            $this->property
-                ->setUrl($product->getProductUrl())
-                ->addProperty('product:price:amount', (string) $product->getFinalPrice(), 'product');
+            $this->property->setUrl($product->getProductUrl());
+            $this->property->addProperty('product:price:amount', (string) $product->getFinalPrice(), 'product');
         }
         return $this->property;
     }
