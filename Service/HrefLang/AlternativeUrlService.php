@@ -52,6 +52,8 @@ class AlternativeUrlService
                 return $this->productUrlRetriever->getUrl($this->request->getParam('id'), $store);
             case 'cms_page_view':
                 return $this->cmsPageUrlRetriever->getUrl($this->request->getParam('page_id'), $store);
+            case 'cms_index_index':
+                return $store->getBaseUrl();
         }
         return '';
     }
