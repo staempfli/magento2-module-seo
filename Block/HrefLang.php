@@ -37,7 +37,8 @@ class HrefLang extends Template
     {
         $data = [];
         foreach ($this->getStores() as $store) {
-            if ((!$this->isCurrentStore($store)) && $url = $this->getStoreUrl($store)) {
+            $url = $this->getStoreUrl($store);
+            if ($url) {
                 $data[$this->getLocaleCode($store)] = $url;
             }
         }
