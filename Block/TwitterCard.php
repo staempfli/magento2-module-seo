@@ -13,6 +13,7 @@ use Staempfli\Seo\Model\Config;
 
 class TwitterCard extends Template implements SeoBlockInterface
 {
+    const ACTIVE_PATH = 'seo/twitter_card/active';
     /**
      * @var Config
      */
@@ -38,6 +39,10 @@ class TwitterCard extends Template implements SeoBlockInterface
      */
     public function getMetaData()
     {
+        if (!$this->isActive()) {
+            return '';
+        }
+
         $property = $this->adapter->getProperty();
         return $property
             ->setPrefix('twitter:')
@@ -45,5 +50,10 @@ class TwitterCard extends Template implements SeoBlockInterface
             ->addProperty('site', $this->config->getDefaultTwitterCardSite())
             ->addProperty('creator', $this->config->getDefaultTwitterCardCreator())
             ->toHtml();
+    }
+
+    private function isActive()
+    {
+        return $this->config->isActive(self::ACTIVE_PATH);
     }
 }

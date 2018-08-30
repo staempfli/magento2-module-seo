@@ -39,44 +39,51 @@ class Config
         $this->scopeConfig = $scopeConfig;
     }
 
-    public function getGoogleSiteVerificationCode() : string
+    public function getGoogleSiteVerificationCode(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_GOOGLE_SITE_VERIFICATION_CODE);
     }
 
-    public function getBingSiteVerificationCode() : string
+    public function getBingSiteVerificationCode(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_BING_SITE_VERIFICATION_CODE);
     }
 
-    public function getPinterestSiteVerificationCode() : string
+    public function getPinterestSiteVerificationCode(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_PINTEREST_SITE_VERIFICATION_CODE);
     }
 
-    public function getYandexSiteVerificationCode() : string
+    public function getYandexSiteVerificationCode(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_YANDEX_SITE_VERIFICATION_CODE);
     }
 
-    public function getDefaultTwitterCardType() : string
+    public function getDefaultTwitterCardType(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_TWITTER_DEFAULT_TYPE);
     }
 
-    public function getDefaultTwitterCardSite() : string
+    public function getDefaultTwitterCardSite(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_TWITTER_DEFAULT_SITE);
     }
 
-    public function getDefaultTwitterCardCreator() : string
+    public function getDefaultTwitterCardCreator(): string
     {
         return $this->getConfigValue(self::XML_PATH_SEO_TWITTER_DEFAULT_CREATOR);
     }
 
-    public function getRobotsContent() : string
+    public function getRobotsContent(): string
     {
         return $this->getConfigValue(self::XML_PATH_ROBOTS_CONTENT);
+    }
+
+    public function isActive(string $configPath): bool {
+        return $this->scopeConfig->isSetFlag(
+            $configPath,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     private function getConfigValue(string $configPath) : string
