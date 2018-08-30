@@ -10,6 +10,7 @@ namespace Staempfli\Seo\Model\Adapter;
 use Magento\Catalog\Block\Product\ImageBuilder;
 use Magento\Catalog\Block\Product\Image;
 use Staempfli\Seo\Model\AdapterInterface;
+use Staempfli\Seo\Model\Property;
 use Staempfli\Seo\Model\PropertyInterface;
 use \Magento\Framework\Registry;
 
@@ -65,6 +66,7 @@ class Product implements AdapterInterface
 
             $this->property->setUrl($product->getProductUrl());
             $this->property->addProperty('product:price:amount', (string) $product->getFinalPrice(), 'product');
+            $this->property->addProperty('item', $product->getData(), Property::META_DATA_GROUP);
         }
         return $this->property;
     }

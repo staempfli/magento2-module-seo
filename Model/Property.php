@@ -9,6 +9,7 @@ namespace Staempfli\Seo\Model;
 
 final class Property implements PropertyInterface
 {
+    const META_DATA_GROUP = '_data';
     const DEFAULT_GROUP = 'default';
     const DEFAULT_PROPERTIES = [];
     const DEFAULT_PREFIX = '';
@@ -178,6 +179,9 @@ final class Property implements PropertyInterface
         }
 
         foreach ($properties as $property => $value) {
+            if ($property === self::META_DATA_GROUP) {
+                continue;
+            }
             if (is_array($value)) {
                 $subList = $this->renderProperties($value);
                 $html[] = $subList;

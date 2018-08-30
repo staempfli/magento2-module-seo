@@ -11,6 +11,7 @@ use Magento\Cms\Model\Page as CmsPage;
 use Magento\Cms\Model\Template\FilterProvider;
 use Magento\Framework\UrlInterface;
 use Staempfli\Seo\Model\AdapterInterface;
+use Staempfli\Seo\Model\Property;
 use Staempfli\Seo\Model\PropertyInterface;
 
 class Page implements AdapterInterface
@@ -52,6 +53,7 @@ class Page implements AdapterInterface
                 (string) $this->filterProvider->getBlockFilter()->filter($this->page->getContent())
             );
             $this->property->setUrl((string) $this->url->getUrl($this->page->getIdentifier()));
+            $this->property->addProperty('item', $this->page->getData(), Property::META_DATA_GROUP);
         }
         return $this->property;
     }

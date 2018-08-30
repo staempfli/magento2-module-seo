@@ -10,6 +10,7 @@ namespace Staempfli\Seo\Model\Adapter;
 use Staempfli\Seo\Model\AdapterInterface;
 use \Magento\Framework\Registry;
 use Staempfli\Seo\Model\BlockParser;
+use Staempfli\Seo\Model\Property;
 use Staempfli\Seo\Model\PropertyInterface;
 
 class Category implements AdapterInterface
@@ -71,6 +72,7 @@ class Category implements AdapterInterface
             if ($category->getImageUrl()) {
                 $this->property->setImage((string) $category->getImageUrl());
             }
+            $this->property->addProperty('item', $category->getData(), Property::META_DATA_GROUP);
         }
         return $this->property;
     }

@@ -11,7 +11,7 @@
             <label>Search Engine Optimization</label>
             <tab>general</tab>
             <resource>Staempfli_Seo::seo</resource>
-            <group id="verifications" translate="label,comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="verifications" translate="label,comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
                 <label>Site Verification Codes</label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Active</label>
@@ -46,7 +46,7 @@
                     </depends>
                 </field>
             </group>
-            <group id="twitter_card" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="twitter_card" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Twitter Card</label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Active</label>

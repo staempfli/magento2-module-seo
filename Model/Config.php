@@ -79,7 +79,8 @@ class Config
         return $this->getConfigValue(self::XML_PATH_ROBOTS_CONTENT);
     }
 
-    public function isActive(string $configPath): bool {
+    public function isActive(string $configPath): bool
+    {
         return $this->scopeConfig->isSetFlag(
             $configPath,
             ScopeInterface::SCOPE_STORE
