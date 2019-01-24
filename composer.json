@@ -11,8 +11,8 @@
     "magento/framework": "~100.1|~101.0|~102.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "~6.2.0",
-    "codeclimate/php-test-reporter": "0.4.0",
+    "phpunit/phpunit": "~6.2",
+    "codeclimate/php-test-reporter": "~0.4|dev-master",
     "magento/marketplace-eqp": "^1.0.5"
   },
   "repositories": [
