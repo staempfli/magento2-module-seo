@@ -16,6 +16,13 @@ Install the module via composer like so:
 composer require staempfli/magento2-module-seo
 ```
 
+For Magento 2.1.x use release [1.6.1](https://github.com/staempfli/magento2-module-seo/releases/tag/1.6.1)
+
+```sh
+composer require staempfli/magento2-module-seo:1.6.1
+```
+
+
 ## Usage
 
 The Module will automatically optimize and improve the performance of your Magento-based store in Search Engines.
@@ -111,8 +118,8 @@ See: [Robots Configuration](docs/Robots.md)
 
 ## Requirements
 
-- PHP: 7.0.x | 7.1.x
-- Magento 2.1.x | 2.2.x
+- PHP: > 7.0
+- Magento 2.2.x | 2.3.x
 
 Support
 -------
