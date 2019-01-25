@@ -69,7 +69,7 @@ class Robots
         return $this->websiteRepository->getDefault();
     }
 
-    protected function getSitemapsContent($website) : array
+    protected function getSitemapsContent($website) : array //@codingStandardsIgnoreLine
     {
         $data = [];
         $sitemaps = $this->sitemap
