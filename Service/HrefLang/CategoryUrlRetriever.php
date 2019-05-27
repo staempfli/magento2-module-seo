@@ -18,13 +18,19 @@ class CategoryUrlRetriever implements CategoryUrlRetrieverInterface
      * @var CategoryUrlPathGenerator
      */
     private $categoryUrlPathGenerator;
+    /**
+     * @var \Magento\Framework\Registry
+     */
+    private $registry;
 
     public function __construct(
         CategoryRepositoryInterface $categoryRepository,
-        CategoryUrlPathGenerator $categoryUrlPathGenerator
+        CategoryUrlPathGenerator $categoryUrlPathGenerator,
+        \Magento\Framework\Registry $registry
     ) {
         $this->categoryRepository = $categoryRepository;
         $this->categoryUrlPathGenerator = $categoryUrlPathGenerator;
+        $this->registry = $registry;
     }
 
     /**
@@ -35,7 +41,10 @@ class CategoryUrlRetriever implements CategoryUrlRetrieverInterface
     public function getUrl($identifier, $store)
     {
         /** @var Category $category */
-        $category = $this->categoryRepository->get($identifier, $store->getId());
+        $category = $this->registry->registry('category');
+        if(!$category) {
+            $category = $this->categoryRepository->get($identifier, $store->getId());
+        }
         $path = $this->categoryUrlPathGenerator->getUrlPathWithSuffix($category);
         return $store->getBaseUrl() . $path;
     }
