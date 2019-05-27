@@ -18,13 +18,19 @@ class ProductUrlRetriever implements ProductUrlRetrieverInterface
      * @var ProductUrlPathGenerator
      */
     private $productUrlPathGenerator;
+    /**
+     * @var \Magento\Framework\Registry
+     */
+    private $registry;
 
     public function __construct(
         ProductRepositoryInterface $productRepository,
-        ProductUrlPathGenerator $productUrlPathGenerator
+        ProductUrlPathGenerator $productUrlPathGenerator,
+        \Magento\Framework\Registry $registry
     ) {
         $this->productRepository = $productRepository;
         $this->productUrlPathGenerator = $productUrlPathGenerator;
+        $this->registry = $registry;
     }
 
     /**
@@ -35,7 +41,10 @@ class ProductUrlRetriever implements ProductUrlRetrieverInterface
     public function getUrl($identifier, $store)
     {
         /** @var Product $product */
-        $product = $this->productRepository->getById($identifier, false, $store->getId());
+        $product = $this->registry->registry('product');
+        if (!$product) {
+            $product = $this->productRepository->getById($identifier, false, $store->getId());
+        }
         $path = $this->productUrlPathGenerator->getUrlPathWithSuffix($product, $store->getId());
         return $store->getBaseUrl() . $path;
     }
