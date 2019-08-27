@@ -37,9 +37,11 @@ class HrefLang extends Template
     {
         $data = [];
         foreach ($this->getStores() as $store) {
-            $url = $this->getStoreUrl($store);
-            if ($url) {
-                $data[$this->getLocaleCode($store)] = $url;
+            if($store->isActive()) {
+                $url = $this->getStoreUrl($store);
+                if ($url) {
+                    $data[$this->getLocaleCode($store)] = $url;
+                }
             }
         }
         return $data;
@@ -96,7 +98,9 @@ class HrefLang extends Template
         foreach ($website->getGroups() as $group) {
             /** @var Group $group */
             foreach ($group->getStores() as $store) {
-                $stores[] = $store;
+                if($store->isActive()) {
+                    $stores[] = $store;
+                }
             }
         }
         return $stores;
