@@ -50,7 +50,7 @@ class Page implements AdapterInterface
         if ($this->page->getId()) {
             $this->property->setTitle((string) $this->page->getTitle());
             $this->property->setDescription(
-                (string) $this->filterProvider->getBlockFilter()->filter($this->page->getContent())
+                (string) $this->filterProvider->getBlockFilter()->filter($this->page->getMetaDescription())
             );
             $this->property->setUrl((string) $this->url->getUrl($this->page->getIdentifier()));
             $this->property->addProperty('item', $this->page->getData(), Property::META_DATA_GROUP);
