@@ -97,7 +97,7 @@ class Robots
                 $sitemap->getSitemapFilename()
             );
 						*/
-						$data[] = sprintf(
+           $data[] = sprintf(
                 'Sitemap: %s',
                 rtrim($sitemap->getSitemapUrl($sitemap->getSitemapPath(),$sitemap->getSitemapFilename()), '/')
             );
